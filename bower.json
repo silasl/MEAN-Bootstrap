@@ -1,0 +1,24 @@
+{
+  "name": "mean-bootstrap",
+  "main": "index.js",
+  "version": "1.0.0",
+  "authors": [
+    "Silas Landricombe <si@siland.co.uk>"
+  ],
+  "description": "Mongo, Express, Angular, Node bootstrap distribution",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3"
+  }
+}
