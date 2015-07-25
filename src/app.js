@@ -1,18 +1,31 @@
 var angular = require('angular');
 require('angular-route');
+require('angular-spinner');
 require('../.jade/templates');
 
-var app = angular.module('MEANApp', [ 'ngRoute', 'mean-tpl' ]);
+var app = angular.module('MEANApp', [ 'ngRoute', 'mean-tpl', 'angularSpinner' ]);
 
 app.constant('VERSION', require('package.version'));
 
-require('./app/AppRoot');
+require('./app/pages/HomePage');
+require('./app/pages/ItemsPage');
+require('./app/services/Config.srvc');
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
 
     $routeProvider.when('/', {
-        templateUrl: 'AppRoot.tpl',
-        controller: 'AppRoot'
+        templateUrl: 'pages/HomePage/HomePage.tpl',
+        controller: 'HomePage'
     });
 
+    $routeProvider.when('/items', {
+        templateUrl: 'pages/ItemsPage/ItemsPage.tpl',
+        controller: 'ItemsPage'
+    });
+
+});
+
+app.run(function($rootElement, Config) {
+    Config.init($rootElement[0].attributes['data-app-config'].value);
 });

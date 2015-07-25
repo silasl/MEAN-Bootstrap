@@ -7,6 +7,7 @@ app.use(express.static(__dirname + '/../public'));
 app.use( bodyParser.json() );
 
 app.use('/', appRoute);
+app.use('/items', appRoute);
 
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'jade');

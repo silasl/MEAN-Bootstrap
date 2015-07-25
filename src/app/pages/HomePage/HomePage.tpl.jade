@@ -1,0 +1,12 @@
+div.container-fluid
+    div.row
+        div.col-xs-12(ng-if="loading")
+            span(us-spinner)
+
+    div.content(ng-if="!loading")
+        div.row
+            div.col-xs-12(ng-include="'components/Nav/Nav.tpl'")
+
+        div.row
+            div.col-xs-12
+                h1 {{pageTitle}}

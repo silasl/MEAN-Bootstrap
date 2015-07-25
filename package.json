@@ -4,6 +4,7 @@
   "dependencies": {
     "angular": "^1.4.3",
     "angular-route": "^1.4.3",
+    "angular-spinner": "^0.6.2",
     "autoprefixer-core": "^5.2.1",
     "body-parser": "^1.13.2",
     "browserify-shim": "^3.8.9",
@@ -43,6 +44,7 @@
   "scripts": {},
   "browserify-shim": {
     "angular": "global:angular",
-    "angular-route": "global:AngularRoute"
+    "angular-route": "global:ngRoute",
+    "angular-spinner": "global:angularSpinner"
   }
 }

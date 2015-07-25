@@ -10,15 +10,6 @@ Node, MongoDB, Bower
 4. Rename sample-env.json to dev-env.json and add the path to your local mongo instance
 5. run `grunt dev`
 
-### Unit Testing
-Tests use Jasmine 2 run with Karma
-
-Tests are run as part of all the grunt steps, however you can do some nice TDD by running
-
-`npm test`
-
-This will start an auto-watch instance of the karma runner.
-
 ## Versioning
 
 To update the app version

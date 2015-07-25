@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.3",
-    "angular-route": "~1.4.3"
+    "angular-route": "~1.4.3",
+    "angular-spinner": "~0.6.2"
   }
 }
