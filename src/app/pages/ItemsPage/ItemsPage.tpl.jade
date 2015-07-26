@@ -27,4 +27,4 @@ div.container-fluid
                         label(for="itemName") Insert item
                         input(type="text", placeholder="Item name", ng-model="newItem.itemName").form-control#itemName
 
-                    button(type="submit").btn.btn-default Insert item
+                    button(type="submit", ng-disabled="!(newItem.itemName && newItem.itemName.length > 1)").btn.btn-default Insert item
