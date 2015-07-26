@@ -9,7 +9,7 @@ app.constant('VERSION', require('package.version'));
 
 require('./app/pages/HomePage');
 require('./app/pages/ItemsPage');
-require('./app/services/Config.srvc');
+require('./app/services');
 
 app.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);

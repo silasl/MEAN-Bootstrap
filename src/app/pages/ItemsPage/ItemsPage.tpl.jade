@@ -10,3 +10,21 @@ div.container-fluid
         div.row
             div.col-xs-12
                 h1 {{pageTitle}}
+
+        div.row
+            div.col-xs-12
+                h2 Items
+                
+            div.col-xs-12
+                ul.list-group
+                    li.list-group-item(ng-repeat="item in items")
+                        a(href="#") {{item.itemName}}
+
+            div.col-xs-12
+                form(ng-submit="insertItem($event)")
+
+                    div.form-group
+                        label(for="itemName") Insert item
+                        input(type="text", placeholder="Item name", ng-model="newItem.itemName").form-control#itemName
+
+                    button(type="submit").btn.btn-default Insert item

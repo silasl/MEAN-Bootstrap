@@ -1,10 +1,16 @@
-module.exports = function($scope) {
+module.exports = function ($scope, Config) {
 
-    $scope.loading = true;
+    var setScope = function () {
+        $scope.loading = Config.fetchState();
+        $scope.pageTitle = Config.fetchConfig('appTitle');
+    };
 
-    $scope.$on('GOT_CONFIG', function(event, data) {
-        $scope.loading = false;
-        $scope.pageTitle = data.appTitle;
+    setScope();
+
+    // Event listeners
+
+    $scope.$on('GOT_CONFIG', function () {
+        setScope();
     });
 
 };

@@ -9,7 +9,9 @@
     "body-parser": "^1.13.2",
     "browserify-shim": "^3.8.9",
     "express": "~4.10.0",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "monk": "^1.0.1",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "bower": "~1.3.12",

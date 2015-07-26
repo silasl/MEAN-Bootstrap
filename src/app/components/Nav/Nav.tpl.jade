@@ -1,5 +1,3 @@
-ul.nav.nav-pills
-    li.active
-        a(href="/") home
-    li
-        a(href="/items") items
+ul(ng-controller="Nav").nav.nav-pills
+    li(ng-repeat="item in navItems", class="{{item.active ? 'active' : ''}}")
+        a(href="{{item.route}}") {{item.label}}

@@ -1,14 +1,16 @@
-var app = require('angular').module('MEANApp');
+module.exports = function($scope, $location) {
 
-app.controller('Nav', function($scope) {
     $scope.navItems = [
         {
             label: 'Home',
-            route: '/'
+            route: '/',
+            active: $location.path() === '/'
         },
         {
             label: 'Items',
-            route: '/items'
+            route: '/items',
+            active: $location.path() === '/items'
         }
     ];
-});
+
+};

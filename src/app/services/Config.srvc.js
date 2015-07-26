@@ -1,7 +1,7 @@
-var app = require('angular').module('MEANApp');
+module.exports = function ($rootScope, $http) {
 
-app.service('Config', function($rootScope, $http){
-    var config = null,
+    var _config = {},
+        _state = false,
         _get = function(url, onSuccess){
             $http.get(url).
                 success(function(data) {
@@ -15,15 +15,22 @@ app.service('Config', function($rootScope, $http){
     return {
         init: function (url) {
             if(url){
+                _state = true;
                 _get(url, function(data){
-                    config = data;
-                    $rootScope.$broadcast('GOT_CONFIG', config);
+                    _config = data;
+                    _state = false;
+                    $rootScope.$broadcast('GOT_CONFIG', _config);
                 });
             }
         },
 
+        fetchState: function(){
+            return _state;
+        },
+
         fetchConfig: function(prop){
-            return prop ? config[prop] : config;
+            return prop ? _config[prop] : _config;
         }
     };
-});
+
+};
