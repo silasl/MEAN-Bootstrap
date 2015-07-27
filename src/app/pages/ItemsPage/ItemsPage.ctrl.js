@@ -5,11 +5,13 @@ module.exports = function($scope, Config, Item) {
         $scope.itemsLoading = Item.fetchState();
         $scope.items = Item.fetchItems();
         $scope.newItem = {};
+        $scope.buttonText = 'Insert item';
     };
 
     Item.init();
 
-    $scope.insertItem = function(e){
+    $scope.insertItem = function(){
+        $scope.buttonText = 'Loading...';
         Item.saveItem($scope.newItem);
     };
 
@@ -24,6 +26,7 @@ module.exports = function($scope, Config, Item) {
     });
 
     $scope.$on('SAVED_ITEM', function () {
+        $scope.buttonText = 'Insert item';
         Item.init();
     });
 

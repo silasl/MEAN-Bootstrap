@@ -21,10 +21,10 @@ div.container-fluid
                         a(href="#") {{item.itemName}}
 
             div.col-xs-12
-                form(ng-submit="insertItem($event)")
+                form(ng-submit="insertItem()")
 
                     div.form-group
                         label(for="itemName") Insert item
                         input(type="text", placeholder="Item name", ng-model="newItem.itemName").form-control#itemName
 
-                    button(type="submit", ng-disabled="!(newItem.itemName && newItem.itemName.length > 1)").btn.btn-default Insert item
+                    button.btn.btn-default(type="submit", ng-disabled="!(newItem.itemName && newItem.itemName.length > 1) || buttonEvent", ng-bind-html="buttonText")

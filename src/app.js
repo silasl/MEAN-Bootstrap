@@ -1,9 +1,10 @@
 var angular = require('angular');
 require('angular-route');
+require('angular-sanitize');
 require('angular-spinner');
 require('../.jade/templates');
 
-var app = angular.module('MEANApp', [ 'ngRoute', 'mean-tpl', 'angularSpinner' ]);
+var app = angular.module('MEANApp', [ 'ngRoute', 'ngSanitize', 'mean-tpl', 'angularSpinner' ]);
 
 app.constant('VERSION', require('package.version'));
 

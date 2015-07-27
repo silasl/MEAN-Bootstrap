@@ -16,6 +16,7 @@ module.exports = function (grunt) {
                 dest: 'public/js/vendor/vendor.js',
                 cssDest: 'src/public/less/whitelabel/base/vendor.less',
                 dependencies: {
+                    'angular-sanitize': 'angular',
                     'angular-route': 'angular'
                 }
             }
