@@ -26,6 +26,14 @@
     "angular": true,
     "process":true,
     "global":true,
-    "__dirname": true
+    "__dirname": true,
+    "inject": true,
+    "describe": true,
+    "beforeEach": true,
+    "expect": true,
+    "it": true,
+    "jest": true,
+    "jasmine": true,
+    "spyOn": true
   }
 }

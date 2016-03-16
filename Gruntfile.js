@@ -161,6 +161,15 @@ module.exports = function (grunt) {
         clean: {
             js: ['release/', 'build/', 'public/js/application.js', 'public/js/application.min.js']
         },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                autoWatch: true
+            },
+            ci: {
+                configFile: 'karma.ci.js'
+            }
+        },
         watch: {
             js: {
                 files: ['build/application.js'],
@@ -168,6 +177,12 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            karma: {
+                files: [
+                    'src/**/__tests__/**/*'
+                ],
+                tasks: ['karma:unit']
             },
             jade: {
                 files: ['src/app/**/*.tpl.jade'],
@@ -210,15 +225,15 @@ module.exports = function (grunt) {
     }
 
     grunt.registerTask('css', ['less:dist', 'postcss']);
-    grunt.registerTask('js', ['bower_concat', 'jshint', 'browserify:debug', 'uglify:js']);
-    grunt.registerTask('js-release', ['bower_concat', 'jshint', 'browserify:release', 'uglify:js']);
+    grunt.registerTask('js', ['bower_concat', 'jshint', 'karma:unit', 'browserify:debug', 'uglify:js']);
+    grunt.registerTask('js-release', ['bower_concat', 'jshint', 'karma:unit', 'browserify:release', 'uglify:js']);
 
     grunt.registerTask('build', ['jade', 'html2js', 'js', 'css', 'copy:dev']);
     grunt.registerTask('build-css', ['css', 'copy:dev']);
     grunt.registerTask('build-tpl', ['jade', 'html2js', 'copy:dev']);
     grunt.registerTask('build-release', ['js-release', 'css', 'copy:dev']);
     grunt.registerTask('rel', ['js-release', 'css', 'copy:dev']);
-    grunt.registerTask('ci', ['clean:js', 'jshint']);
+    grunt.registerTask('ci', ['clean:js', 'jshint', 'karma:ci']);
 
     grunt.registerTask('dev', ['env', 'express:dev', 'build', 'watch']);
     grunt.registerTask('release', ['clean:js', 'env', 'i18n', 'copy:release', 'compress', 'azure-blob']);
